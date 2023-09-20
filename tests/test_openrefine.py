@@ -61,6 +61,8 @@ def test_create_project(container: ContainerData, container_runtime: ContainerBa
     )
     assert isinstance(project, int)
     assert 0 < project
+    metadata = openrefine.get_metadata(project)
+    assert metadata["rowCount"] == csv_file["content"].count(b"\n")-1
     project_url = openrefine.project_url(project)
     assert re.match(r"^%s/project\?project=\d{13}$" % url, project_url)
 

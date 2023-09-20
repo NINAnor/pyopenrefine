@@ -89,6 +89,10 @@ class OpenRefine:
         response = self.request("get-rows", project=project, start=start, limit=limit)
         return response.json()
 
+    def get_metadata(self, project):
+        response = self.request("get-project-metadata", project=project)
+        return response.json()
+
     def project_url(self, project):
         internal_url = requests.get(
             self.url + "/project", params={"project": project}
