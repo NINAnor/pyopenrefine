@@ -13,6 +13,11 @@ python = "^3.8"
 pytest-container = "^0.2.0"
 pytest-xdist = "^3.3.1"
 
+[tool.pytest.ini_options]
+addopts = "-n auto"
+log_cli = true
+log_level = "DEBUG"
+
 [tool.black]
 
 [tool.isort]
